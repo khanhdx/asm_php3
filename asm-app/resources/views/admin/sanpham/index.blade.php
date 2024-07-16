@@ -3,6 +3,8 @@
 
 {{-- section: định nghĩa nội dung của section --}}
 @section('content')
+
+<h2 class="fw-bold">Quản lý sản phẩm</h2>
     <div class="card">
         <h4 class="card-header">Danh sách sản phẩm</h4>
         <div class="card-body">
@@ -43,9 +45,10 @@
                                 <form action="{{ route('sanpham.destroy', $item->id) }}" method="post">
                                     @method('DELETE')
                                     @csrf
-                                    <button type="submit" onclick="return confirm('bạn có muốn xóa không?')" class="btn btn-danger">Xóa</button>
+                                    <button type="submit" onclick="return confirm('bạn có muốn xóa không?')"
+                                        class="btn btn-danger">Xóa</button>
                                 </form>
-                                
+
                             </td>
                         </tr>
                     @endforeach
@@ -54,3 +57,7 @@
         </div>
     </div>
 @endsection
+
+
+
+
