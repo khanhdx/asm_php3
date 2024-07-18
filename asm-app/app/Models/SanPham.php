@@ -10,16 +10,38 @@ class SanPham extends Model
 {
     use HasFactory;
 
-    // c1: sử dụng Query Builer
-    public function getAll() {
-        $san_phams = DB::table('san_phams')
-        ->join('danh_mucs', 'san_phams.danh_muc_id', '=', 'danh_mucs.id')
-        ->select('san_phams.*', 'danh_mucs.ten_danh_muc')
-        ->orderBy('san_phams.id', 'DESC')
-        ->get();
+    protected $fillable = [
 
-        return $san_phams;
+        'ten_san_pham',
+        'hinh_anh',
+        'so_luong',
+        'gia_san_pham',
+        'gia_khuyen_mai',
+        'ngay_nhap',
+        'mo_ta',
+        'danh_muc_id',
+        'trang_thai',
+
+    ];
+    public $table = 'san_phams';
+
+    public $timestamp = false;
+
+    public function danhMuc()
+    {
+        return $this->belongsTo(DanhMuc::class, 'danh_muc_id');
     }
+
+    // c1: sử dụng Query Builer
+    // public function getAll() {
+    //     $san_phams = DB::table('san_phams')
+    //     ->join('danh_mucs', 'san_phams.danh_muc_id', '=', 'danh_mucs.id')
+    //     ->select('san_phams.*', 'danh_mucs.ten_danh_muc')
+    //     ->orderBy('san_phams.id', 'DESC')
+    //     ->get();
+
+    //     return $san_phams;
+    // }
     //sử lý thêm sản phẩm
     public function createsanPham($data) 
     {

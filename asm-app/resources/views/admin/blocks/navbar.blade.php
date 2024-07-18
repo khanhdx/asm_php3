@@ -1,9 +1,9 @@
 <nav class="navbar bg-body-tertiary">
     <form class="container-fluid justify-content-start">
-        <a href="">
+        <a href="{{ route('sanpham.index') }}">
             <button class="btn btn-sm btn-outline-secondary me-2" type="button">Quản lý sản phẩm</button>
         </a>
-        <a href="">
+        <a href="{{ route('danhmuc.index') }}">
             <button class="btn btn-sm btn-outline-secondary me-2" type="button">Quản lý danh mục</button>
         </a>
         <a href="">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DanhMuc;
 use App\Models\SanPham;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,10 @@ class SanPhamController extends Controller
      */
     public function index()
     {
-        $listSanPham = $this->san_pham->getAll();
+        // $listSanPham = $this->san_pham->getAll();
+        $listSanPham = SanPham::with('danhMuc:id,ten_danh_muc')
+        ->orderBy('id', 'DESC')
+        ->get();
         // dd($listSanPham);
         //gọi đến view muốn hiển thị ra
         return view('admin.sanpham.index', ['san_phams' => $listSanPham]);

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DanhMucController;
 use App\Http\Controllers\SanPhamController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,5 @@ Route::get('/', function () {
 
 // Route resource
 Route::resource('sanpham', SanPhamController::class);
+
+Route::resource('danhmuc', DanhMucController::class);
