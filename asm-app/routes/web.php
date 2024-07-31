@@ -1,8 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DanhMucController;
 use App\Http\Controllers\SanPhamController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DonHangController;
+use App\Http\Controllers\ChiTietDonHangController;
+use App\Http\Controllers\TrangThaiDonHangController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +28,15 @@ Route::get('/', function () {
 Route::resource('sanpham', SanPhamController::class);
 
 Route::resource('danhmuc', DanhMucController::class);
+
+Route::resource('user', UserController::class);
+
+Route::resource('donhang', DonHangController::class);
+
+Route::resource('chitietdonhang', ChiTietDonHangController::class);
+
+Route::resource('trangthaidonhang', TrangThaiDonHangController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
